@@ -4,11 +4,8 @@ const program = require('commander');
 const semver = require('semver');
 const fse = require('fs-extra');
 const packageConfig = require('../package');
-// const spawn = require('cross-spawn');
-const ora = require('ora');
 const path = require('path')
-const exec = require('child_process').exec;
-const spawn = require('child_process').spawn;
+const child_process = require('child_process');
 
 
 //使用方括号声明，即传值不是必须的
@@ -40,19 +37,18 @@ program
     })
     .action(async (program, cmd) => {
         if (!program && !cmd.path) {
-            const spinner = ora('Starting cool');
-            // spinner.start();
-            const app = spawn('node', ['app'], {
-                cwd: path.resolve(process.cwd(), '../server')
-            });
-
-            app.stdout.on('data', (data) => {
-                console.log(`stdout: ${data}`);
-            });
-            console.log(path.resolve(process.cwd(), '../server'))
-            exec('npm start', { stdio: 'inherit', cwd: path.resolve(process.cwd(), '..') })
-
-            // spinner.stop();
+            // 启动server
+            child_process.spawn('node', ['app'], {
+                cwd: path.resolve(process.cwd(), '../server'),
+                stdio: 'inherit',
+                shell: true             // 只在windows电脑上开启，mac上不影响，防止产生无效进程
+            })
+            // 启动前台
+            child_process.spawn('npm', ['start'], {
+                cwd: path.resolve(process.cwd(), '..'),
+                stdio: 'inherit',
+                shell: true             // 只在windows电脑上开启，mac上不影响，防止产生无效进程
+            })
         }
     });
 program.parse(process.argv);
