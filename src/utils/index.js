@@ -1,3 +1,13 @@
+/*
+ * @Author: chenshizhong
+ * @Date: 2019/9/16 11:08:10
+ * @Description:内容描述
+ */
+
+import {deleteCookie, setCookie, getCookie} from "./base-utils/cookie";
+import {randomNum, getQueryString} from "./base-utils/utils";
+import Fetch from "./base-utils/fetch";
+
 import axios from 'axios'
 import { message } from 'antd';
 import marked from 'marked'
@@ -82,5 +92,11 @@ export const judgeWidth = (value = screeWidth.middleWidth) => {
     return document.body.clientWidth > value
 }
 
-
-
+export {
+    Fetch,
+    getCookie,
+    setCookie,
+    deleteCookie,
+    getQueryString,
+    randomNum
+}

@@ -156,9 +156,9 @@ class LeftSider extends React.Component {
                         </span>
                     }
                 >
-                    {/* <Menu.Item key="1"><Link to="/layout">上中下布局</Link></Menu.Item> */}
-                    <Menu.Item key="1" onClick={this.handleHMF}>左右布局</Menu.Item>
-                    <Menu.Item key="2" onClick={this.handleLMR}>上中下布局</Menu.Item>
+                    <Menu.Item key="1"><Link to="/layout">上中下布局</Link></Menu.Item>
+                    {/* <Menu.Item key="1" onClick={this.handleHMF}>左右布局</Menu.Item> */}
+                    {/* <Menu.Item key="2" onClick={this.handleLMR}>上中下布局</Menu.Item> */}
                 </SubMenu>
                 <SubMenu
                     key="sub2"
@@ -169,7 +169,7 @@ class LeftSider extends React.Component {
                         </span>
                     }
                 >
-                    <Menu.Item key="5">Option 5</Menu.Item>
+                    <Menu.Item key="5"><Link to="/formCreater">表单组件</Link></Menu.Item>
                     <Menu.Item key="6">Option 6</Menu.Item>
                     <SubMenu key="sub3" title="Submenu">
                         <Menu.Item key="7">Option 7</Menu.Item>

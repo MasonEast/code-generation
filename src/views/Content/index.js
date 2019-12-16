@@ -20,22 +20,22 @@ const ContentView = (props) => {
     }
 
     return (
-        <div>
-            {
-                dom.type && <dom.type className={dom.class || ''}>
-                    {stateCompile(dom.children)}
-                </dom.type>
-            }
-        </div>
-        // <Section>
-        //     222
-        //     <Side>111</Side>
-        //     <Layout>
-        //         <Header />
-        //         <Content />
+        // <div>
+        //     {
+        //         dom.type && <dom.type className={dom.class || ''}>
+        //             {stateCompile(dom.children)}
+        //         </dom.type>
+        //     }
+        // </div>
+        <Section>
+            222
+            <Side>111</Side>
+            <Layout>
+                <Header />
+                <Content />
 
-        //     </Layout>
-        // </Section>
+            </Layout>
+        </Section>
     )
 }
 

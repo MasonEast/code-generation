@@ -1,0 +1,148 @@
+/**antd 变量 -------------------- start*/
+
+$primary-1: #F5F8FB;
+$table-seleted-row-bg: #E9F7F4;
+$table-border-color: #e8e8e8;
+
+/**antd 变量 -------------------- over*/
+
+/** 更改的ag-grid样式 -------------------- start */
+
+// $header-height: 48px;
+// $row-height: 38px;       //$header-height,$row-height仅在这里设置无效，需要在表格中配置headerHeight、rowHeight属性，官方文档：需要在grid内配置，将来可能会移除这一步
+// $focused-cell-border-color: unset;
+// $row-border-width: 1px;
+// $border-color: $table-border-color;    //修改无效，被覆盖
+$icon-color: #d9d9d9;   //复选框颜色
+$accent-color: #1890ff; //复选框选中颜色
+$hover-color: $primary-1;   //row hover bg color
+$header-background-color: #F1F3F5;
+$selected-color: $table-seleted-row-bg;   //row selected bg color
+$background-color: #fff;
+$odd-row-background-color: #fff;
+$font-size: 12px;
+
+$ag-range-selected-color-1: red;
+// $ag-range-selected-color-2: darken($ag-range-selected-color-1, 10%);
+// $ag-range-selected-color-3: darken($ag-range-selected-color-1, 20%);
+// $ag-range-selected-color-4: darken($ag-range-selected-color-1, 30%);
+
+/** 更改的ag-grid样式 -------------------- over */
+
+@import "./styles/ag-grid.scss";
+@import "./styles/ag-theme-balham/sass/ag-theme-balham.scss";
+// @import "../../../node_modules/ag-grid-community/src/styles/ag-theme-material/sass/ag-theme-material.scss";
+
+.ag-theme-balham{
+  .ag-cell{
+    &.ag-cell-inline-editing{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+    }
+    //覆盖默认table cell render样式
+    .ag-react-container{
+      width: 100%;
+    }
+    //清除antd日期最小宽度限制
+    .ant-calendar-picker{
+      min-width: unset !important;
+      width: 100%;
+    }
+
+  }
+}
+
+// 将ag-grid checked状态转为antd风格
+.ag-theme-balham .ag-icon-checkbox-checked{
+  width:14px;
+  height:14px;
+  border-radius: 2px !important;
+  background:#0265FF !important;
+  display: inline-block;
+  position:relative;
+}
+
+.ag-theme-balham .ag-icon-checkbox-checked:before, .ag-theme-balham .ag-icon-checkbox-checked-readonly:before{
+  position: absolute;
+  display: table;
+  border: 2px solid #fff;
+  border-top: 0;
+  border-left: 0;
+  -webkit-transform: rotate(45deg) scale(1) translate(-50%, -50%);
+  transform: rotate(45deg) scale(1) translate(-50%, -50%);
+  opacity: 1;
+  content: ' '!important;
+}
+
+.ag-theme-balham .ag-icon-checkbox-checked:before {
+  top: 50%;
+  left: 21%;
+  width: 5px;
+  height: 8px;
+}
+
+// 将ag-grid的未选中框转化为antd风格
+.ag-theme-balham .ag-icon-checkbox-unchecked:before, .ag-theme-balham .ag-icon-checkbox-unchecked-readonly:before {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  border-collapse: separate;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content:'' !important;
+}
+
+// 将ag-grid indeterminate状态转为antd风格
+.ag-theme-balham .ag-checkbox-indeterminate{
+  width:14px;
+  height:14px;
+  border-radius: 2px;
+  background:#0265FF !important;
+}
+
+.ag-theme-balham .ag-icon-checkbox-indeterminate:before, .ag-theme-balham .ag-icon-checkbox-indeterminate-readonly:before{
+  position:absolute;
+  top: 50%;
+  left: 42%;
+  width: 6px;
+  height: 6px;
+  background-color: #0265FF;
+  border: 0;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  content: ' ' !important;
+}
+
+.ag-theme-balham .ag-icon-checkbox-indeterminate:before {
+  width: 8px;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+// ag-grid列头的过滤菜单 图标灰色加深
+.ag-theme-balham .ag-icon-menu:before{
+  color:#2d2d2d;
+}
+
+// ag-grid列头的排序、过滤漏斗 图标颜色调整
+.ag-theme-balham .ag-icon-asc:before,
+.ag-theme-balham .ag-icon-desc:before,
+.ag-theme-balham .ag-icon-filter:before {
+  color:#0265ff;
+}
+
+// 不使用ag-grid 加载中遮罩
+.ag-overlay{
+  display:none
+}

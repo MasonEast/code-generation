@@ -1,0 +1,70 @@
+
+.rnd-move-modal {
+    overflow: hidden;
+    .rnd-modal-header {
+        display: flex;
+        padding-left: 24px;
+        align-items: center;
+        justify-content: space-between;
+        color: rgba(0, 0, 0, .65);
+        background: #fff;
+        border-bottom: 1px solid #E8E8E8;
+        border-radius: 2px 2px 0 0;
+        cursor: move;
+        .rnd-modal-title {
+            margin: 0;
+            color: rgba(0,0,0,0.85);
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            word-wrap: break-word;
+        }
+        .icon-close {
+            position: relative;
+            left: -4px;
+            padding: 20px;
+            cursor: pointer;
+        }
+    }
+    .rnd-modal-container {
+        .rnd-modal-body {
+            padding: 0 24px;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow: hidden;
+            overflow-y: auto;
+        }
+        .rnd-modal-footer {
+            padding: 10px 16px;
+            text-align: right;
+            background: transparent;
+            border-top: 1px solid #e8e8e8;
+            border-radius: 0 0 2px 2px;
+            text-align: right;
+            background: #F5F8FB;
+            .ant-btn-primary {
+                margin-left: 8px;
+            }
+        }
+    }
+    .rnd-resize::before{
+        content:"";
+        display:block;
+        position:absolute;
+        left:0;
+        top:0;
+        z-index: 9999;
+        border: 1px dashed #434396;
+        right: 0;
+        bottom: 0;
+        box-sizing:border-box;
+    }
+    .rnd-drag {
+        opacity: 0.8;
+        overflow: hidden;
+    }
+    .ant-modal-body {
+        padding: 0;
+    }
+}
+

@@ -1,0 +1,55 @@
+@icon-color-in-cell: #0265FF;                       // 单元格内图标颜色
+@icon-color-in-cell-hover: #E86848;                 // 单元格内图标hover颜色
+.icon-right-center(){                                 // 图标靠右上下居中，默认隐藏
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+// 单元格图标
+.cell-with-icon{
+  padding-right: 12px;
+  position: relative;
+  // icon 图标
+  .icon-in-cell{
+    color: @icon-color-in-cell;
+    .icon-right-center();
+    &:hover{
+      color: @icon-color-in-cell-hover;
+      cursor: pointer;
+    }
+  }
+  // tag图标
+  .tag-in-cell{
+    .icon-right-center();
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+.ag-row-selected, .ag-row-hover{
+  .icon-in-cell{
+    display: inline;
+    color: @icon-color-in-cell;
+    &:hover{
+      color: @icon-color-in-cell-hover;
+    }
+  }
+  .tag-in-cell{
+    display: inline-block;
+    &:hover{
+      background-color: @icon-color-in-cell-hover !important;
+      cursor: pointer;
+    }
+  }
+}

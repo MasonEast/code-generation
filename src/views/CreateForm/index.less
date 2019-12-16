@@ -1,0 +1,45 @@
+.form-container{
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    &:hover{
+        border: 1px dashed orange;
+    }
+    &.active{
+        border: 1px solid orange;
+    }
+}
+.edit-container{
+    height: 100%;
+    background-color: #f8f8f8;
+    border-left: 1px solid #ddd;
+    padding: 10px;
+}
+
+// 可编辑表格样式
+.editable-cell {
+    position: relative;
+}
+  
+.editable-cell-value-wrap {
+    padding: 5px 12px;
+    cursor: pointer;
+}
+.editable-row{
+    &:hover{
+        .editable-cell-value-wrap {
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            padding: 4px 11px;
+        }
+    }
+    .ant-form-item-control{
+        line-height: unset;
+    }
+    .ant-form-item{
+        width: 100% !important;
+        &>.ant-form-item-control-wrapper{
+            display: block;
+        }
+    }
+}

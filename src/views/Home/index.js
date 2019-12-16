@@ -33,13 +33,13 @@ const Home = (props) => {
                 <LeftSider />
             </Sider>
             <Content>
-                <ContentView />
-                {/* <Switch>
+                {/* <ContentView /> */}
+                <Switch>
                     {
                         props.routes.map((route, i) => (
                             <RouteWithSubRoutes key={i} {...route} />
                         ))}
-                </Switch> */}
+                </Switch>
             </Content>
             <Sider className="home-right" theme="light">
                 <h2>属性栏</h2>
