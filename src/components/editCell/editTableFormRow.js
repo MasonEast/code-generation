@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Select, Checkbox } from 'antd';
+import WidthInput from '../width-input';
 // import './editableRow.less'
 
 const EditableContext = React.createContext();
@@ -12,9 +13,12 @@ const EditableRow = ({ form, index, ...props }) => (
 const EditableFormRow = Form.create()(EditableRow);
 
 class EditableCell extends React.Component {
-  state = {
-    editing: false,
-  };
+  constructor(props){
+    super(props)
+    this.state = {
+      editing: false
+    }
+  }
 
   toggleEdit = () => {
     const editing = !this.state.editing;
@@ -43,8 +47,10 @@ class EditableCell extends React.Component {
             })
           }
         </Select>
-      case 'Checkbox':
-        return <Checkbox onChange={this.save} />
+      case 'label-wrapper-col':
+        return <Input type='number' onPressEnter={this.save} onBlur={this.save} min={-1} max={24} />
+      case 'width-input':
+        return <WidthInput onPressEnter={this.save} onBlur={this.save} />
       default: 
         return <Input onPressEnter={this.save} onBlur={this.save} />
     }
